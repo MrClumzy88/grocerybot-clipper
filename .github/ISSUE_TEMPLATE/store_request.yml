@@ -1,0 +1,22 @@
+name: Store request
+description: Ask for a store to be supported.
+labels: [store request]
+body:
+  - type: input
+    id: store
+    attributes:
+      label: Store
+      placeholder: e.g. Publix
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Coupons page URL
+      placeholder: https://www.example.com/coupons
+  - type: textarea
+    id: request
+    attributes:
+      label: What clipping one coupon sends (optional, very helpful)
+      description: DevTools → Network → clip one coupon by hand → the request's URL and body shape. Remove your own IDs and tokens.
+      render: text

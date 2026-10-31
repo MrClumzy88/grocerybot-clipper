@@ -1,0 +1,29 @@
+name: Bug report
+description: A store stopped working or something looks wrong.
+labels: [bug]
+body:
+  - type: input
+    id: store
+    attributes:
+      label: Store
+      placeholder: e.g. Kroger, H-E-B, Target
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What the progress panel or popup said, and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: console
+    attributes:
+      label: Console lines
+      description: DevTools (F12) → Console on the store's tab, lines starting with [GroceryBot]. Remove anything personal.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      description: Shown on chrome://extensions.

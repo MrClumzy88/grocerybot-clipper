@@ -1,0 +1,80 @@
+:root {
+  --bg: #ffffff;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --accent: #16a34a;
+  --warn: #b45309;
+  --bad: #b91c1c;
+  --btn: #f1f5f9;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111827;
+    --fg: #e5e7eb;
+    --muted: #94a3b8;
+    --line: #1f2937;
+    --accent: #22c55e;
+    --warn: #f59e0b;
+    --bad: #f87171;
+    --btn: #1f2937;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  width: 320px;
+  margin: 0;
+  padding: 14px 16px 16px;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+h1 { font-size: 15px; margin: 0; }
+.sub { color: var(--muted); margin: 2px 0 10px; }
+ul { list-style: none; margin: 0 0 12px; padding: 0; }
+li {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 2px 6px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+li.dragging { opacity: .4; }
+li.drop-before { box-shadow: inset 0 2px 0 var(--accent); }
+li.drop-after { box-shadow: inset 0 -2px 0 var(--accent); }
+.handle { cursor: grab; color: var(--muted); user-select: none; letter-spacing: -2px; padding: 0 2px; }
+#more-stores .handle { visibility: hidden; }
+.name { font-weight: 600; display: flex; gap: 6px; align-items: center; }
+.pin { background: none; padding: 2px 4px; opacity: .25; filter: grayscale(1); }
+.pin[aria-pressed="true"] { opacity: 1; filter: none; }
+.pin:hover { opacity: .7; }
+.result { grid-column: 2 / -1; margin: 0; color: var(--muted); }
+.result.running { color: var(--fg); }
+.result.ok { color: var(--accent); }
+.result.login, .result.blocked, .result.stopped { color: var(--warn); }
+.result.error { color: var(--bad); }
+button {
+  border: 0;
+  border-radius: 6px;
+  padding: 5px 12px;
+  background: var(--btn);
+  color: var(--fg);
+  font: inherit;
+  cursor: pointer;
+}
+button:disabled { opacity: .5; cursor: default; }
+button.primary {
+  width: 100%;
+  padding: 9px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.live { margin: 8px 0 0; color: var(--muted); }
+.hint { margin: 0 0 8px; color: var(--muted); }
+details { margin: 0 0 12px; }
+summary { cursor: pointer; color: var(--muted); padding: 4px 0; }
+#more-stores { margin: 4px 0 0; max-height: 260px; overflow-y: auto; }
+#more-stores .run, #more-stores .result { display: none; }
+.daily { display: flex; gap: 6px; align-items: center; margin-top: 12px; color: var(--muted); }

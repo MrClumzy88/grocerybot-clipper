@@ -1,0 +1,218 @@
+{
+  "manifest_version": 3,
+  "name": "GroceryBot Clipper",
+  "version": "0.3.0",
+  "description": "Clips every digital coupon on H-E-B, Target, Kroger-family and Albertsons-family stores using your signed-in session.",
+  "minimum_chrome_version": "111",
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://www.heb.com/*",
+    "https://www.target.com/*",
+    "https://api.target.com/*",
+    "https://redsky.target.com/*",
+    "https://www.walmart.com/*",
+    "https://www.albertsons.com/*",
+    "https://www.tomthumb.com/*",
+    "https://www.safeway.com/*",
+    "https://www.vons.com/*",
+    "https://www.randalls.com/*",
+    "https://www.jewelosco.com/*",
+    "https://www.acmemarkets.com/*",
+    "https://www.shaws.com/*",
+    "https://www.starmarket.com/*",
+    "https://www.pavilions.com/*",
+    "https://www.andronicos.com/*",
+    "https://www.carrsqc.com/*",
+    "https://www.haggen.com/*",
+    "https://www.kingsfoodmarkets.com/*",
+    "https://www.balduccis.com/*",
+    "https://www.kroger.com/*",
+    "https://www.ralphs.com/*",
+    "https://www.frysfood.com/*",
+    "https://www.kingsoopers.com/*",
+    "https://www.fredmeyer.com/*",
+    "https://www.smithsfoodanddrug.com/*",
+    "https://www.qfc.com/*",
+    "https://www.dillons.com/*",
+    "https://www.citymarket.com/*",
+    "https://www.bakersplus.com/*",
+    "https://www.gerbes.com/*",
+    "https://www.jaycfoods.com/*",
+    "https://www.pay-less.com/*",
+    "https://www.marianos.com/*",
+    "https://www.picknsave.com/*",
+    "https://www.metromarket.net/*",
+    "https://www.foodsco.net/*",
+    "https://www.food4less.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GroceryBot Clipper"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.heb.com/*",
+        "https://www.target.com/*",
+        "https://www.walmart.com/*",
+        "https://www.albertsons.com/*",
+        "https://www.tomthumb.com/*",
+        "https://www.safeway.com/*",
+        "https://www.vons.com/*",
+        "https://www.randalls.com/*",
+        "https://www.jewelosco.com/*",
+        "https://www.acmemarkets.com/*",
+        "https://www.shaws.com/*",
+        "https://www.starmarket.com/*",
+        "https://www.pavilions.com/*",
+        "https://www.andronicos.com/*",
+        "https://www.carrsqc.com/*",
+        "https://www.haggen.com/*",
+        "https://www.kingsfoodmarkets.com/*",
+        "https://www.balduccis.com/*",
+        "https://www.kroger.com/*",
+        "https://www.ralphs.com/*",
+        "https://www.frysfood.com/*",
+        "https://www.kingsoopers.com/*",
+        "https://www.fredmeyer.com/*",
+        "https://www.smithsfoodanddrug.com/*",
+        "https://www.qfc.com/*",
+        "https://www.dillons.com/*",
+        "https://www.citymarket.com/*",
+        "https://www.bakersplus.com/*",
+        "https://www.gerbes.com/*",
+        "https://www.jaycfoods.com/*",
+        "https://www.pay-less.com/*",
+        "https://www.marianos.com/*",
+        "https://www.picknsave.com/*",
+        "https://www.metromarket.net/*",
+        "https://www.foodsco.net/*",
+        "https://www.food4less.com/*"
+      ],
+      "js": [
+        "content/bridge.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.heb.com/*"
+      ],
+      "js": [
+        "content/runner.js",
+        "content/heb.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.target.com/*"
+      ],
+      "js": [
+        "content/runner.js",
+        "content/target.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.walmart.com/*"
+      ],
+      "js": [
+        "content/runner.js",
+        "content/walmart.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.albertsons.com/*",
+        "https://www.tomthumb.com/*",
+        "https://www.safeway.com/*",
+        "https://www.vons.com/*",
+        "https://www.randalls.com/*",
+        "https://www.jewelosco.com/*",
+        "https://www.acmemarkets.com/*",
+        "https://www.shaws.com/*",
+        "https://www.starmarket.com/*",
+        "https://www.pavilions.com/*",
+        "https://www.andronicos.com/*",
+        "https://www.carrsqc.com/*",
+        "https://www.haggen.com/*",
+        "https://www.kingsfoodmarkets.com/*",
+        "https://www.balduccis.com/*"
+      ],
+      "js": [
+        "content/runner.js",
+        "content/albertsons.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.kroger.com/*",
+        "https://www.ralphs.com/*",
+        "https://www.frysfood.com/*",
+        "https://www.kingsoopers.com/*",
+        "https://www.fredmeyer.com/*",
+        "https://www.smithsfoodanddrug.com/*",
+        "https://www.qfc.com/*",
+        "https://www.dillons.com/*",
+        "https://www.citymarket.com/*",
+        "https://www.bakersplus.com/*",
+        "https://www.gerbes.com/*",
+        "https://www.jaycfoods.com/*",
+        "https://www.pay-less.com/*",
+        "https://www.marianos.com/*",
+        "https://www.picknsave.com/*",
+        "https://www.metromarket.net/*",
+        "https://www.foodsco.net/*",
+        "https://www.food4less.com/*"
+      ],
+      "js": [
+        "content/kroger-context.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.kroger.com/*",
+        "https://www.ralphs.com/*",
+        "https://www.frysfood.com/*",
+        "https://www.kingsoopers.com/*",
+        "https://www.fredmeyer.com/*",
+        "https://www.smithsfoodanddrug.com/*",
+        "https://www.qfc.com/*",
+        "https://www.dillons.com/*",
+        "https://www.citymarket.com/*",
+        "https://www.bakersplus.com/*",
+        "https://www.gerbes.com/*",
+        "https://www.jaycfoods.com/*",
+        "https://www.pay-less.com/*",
+        "https://www.marianos.com/*",
+        "https://www.picknsave.com/*",
+        "https://www.metromarket.net/*",
+        "https://www.foodsco.net/*",
+        "https://www.food4less.com/*"
+      ],
+      "js": [
+        "content/runner.js",
+        "content/kroger.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    }
+  ]
+}

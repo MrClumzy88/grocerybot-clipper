@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GroceryBot Clipper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>GroceryBot Clipper</h1>
+    <p class="sub">Clips every digital coupon using the account you're signed in with.</p>
+  </header>
+
+  <p id="empty" class="hint" hidden>Check the stores you shop at.</p>
+  <ul id="stores"></ul>
+
+  <details id="more">
+    <summary>More stores</summary>
+    <ul id="more-stores"></ul>
+  </details>
+
+  <button id="run-all" class="primary">Clip all checked stores</button>
+  <p id="live" class="live" hidden></p>
+
+  <label class="daily"><input type="checkbox" id="daily"> Run once a day automatically</label>
+
+  <template id="store-row">
+    <li>
+      <span class="handle" title="Drag to reorder" aria-hidden="true">⋮⋮</span>
+      <label class="name"><input type="checkbox" class="enabled" title="Include in Clip all"> <span></span></label>
+      <button class="pin" title="Pin to top" aria-pressed="false">📌</button>
+      <button class="run">Clip</button>
+      <p class="result"></p>
+    </li>
+  </template>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
