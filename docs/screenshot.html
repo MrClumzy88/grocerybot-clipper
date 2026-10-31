@@ -1,0 +1,61 @@
+<!doctype html>
+<!-- Source for docs/screenshot.png. Uses the popup's real stylesheet and
+     markup with example results. Re-render with headless Chrome after UI changes. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../popup.css">
+  <style>
+    html, body { width: auto; margin: 0; padding: 0; }
+    body { background: #e2e8f0; padding: 28px; display: flex; gap: 28px; align-items: flex-start; font: 13px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    .popup { width: 320px; padding: 14px 16px 16px; background: var(--bg); color: var(--fg); border-radius: 10px; box-shadow: 0 10px 30px rgba(15, 23, 42, .18); }
+    .popup ul li:first-child { border-top: 0; }
+    .page { width: 420px; height: 470px; background: #fff; border-radius: 10px; box-shadow: 0 10px 30px rgba(15, 23, 42, .18); position: relative; overflow: hidden; }
+    .bar { height: 34px; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; padding: 0 12px; color: #64748b; font-size: 12px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 14px; }
+    .card { height: 92px; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px; color: #0f172a; font-weight: 600; font-size: 12px; }
+    .card span { display: block; margin-top: 38px; text-align: center; border-radius: 6px; padding: 4px; font-size: 11px; background: #dcfce7; color: #166534; }
+    .card.todo span { background: #2563eb; color: #fff; }
+    #gbc-panel { position: absolute; right: 16px; bottom: 16px; width: 280px; background: #1d2430; color: #eef2f6; border-radius: 12px; padding: 14px 16px; font: 14px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+    #gbc-panel .t { font-weight: 600; margin-bottom: 6px; }
+    #gbc-panel .bar2 { height: 6px; background: #334155; border-radius: 3px; margin: 10px 0; overflow: hidden; }
+    #gbc-panel .bar2 i { display: block; height: 100%; width: 62%; background: #22c55e; }
+    #gbc-panel button { background: #475569; color: #fff; border: 0; border-radius: 6px; padding: 5px 12px; font: inherit; }
+  </style>
+</head>
+<body>
+  <div class="popup">
+    <h1>GroceryBot Clipper</h1>
+    <p class="sub">Clips every digital coupon using the account you're signed in with.</p>
+    <ul>
+      <li><span class="handle">⋮⋮</span><label class="name"><input type="checkbox" checked> <span>H-E-B</span></label><button class="pin" aria-pressed="true">📌</button><button class="run">Clip</button><p class="result ok">Clipped 227 of 227 new offers. · 2 h ago</p></li>
+      <li><span class="handle">⋮⋮</span><label class="name"><input type="checkbox" checked> <span>Kroger</span></label><button class="pin" aria-pressed="false">📌</button><button class="run">Clip</button><p class="result ok">Clipped 247. Your Kroger card is full. The most valuable ones were clipped first. · 2 h ago</p></li>
+      <li><span class="handle">⋮⋮</span><label class="name"><input type="checkbox" checked> <span>Tom Thumb</span></label><button class="pin" aria-pressed="false">📌</button><button class="run">Clip</button><p class="result ok">Clipped 145 of 145 new offers. · 3 h ago</p></li>
+      <li><span class="handle">⋮⋮</span><label class="name"><input type="checkbox" checked> <span>Target Circle</span></label><button class="pin" aria-pressed="false">📌</button><button class="run">Clip</button><p class="result ok">All 109 offers were already clipped. · 3 h ago</p></li>
+      <li><span class="handle">⋮⋮</span><label class="name"><input type="checkbox" checked> <span>Walgreens</span></label><button class="pin" aria-pressed="false">📌</button><button class="run">Clip</button><p class="result running">Clipping… 164 clipped.</p></li>
+    </ul>
+    <details><summary>More stores</summary></details>
+    <button class="primary">Clip all checked stores</button>
+    <label class="daily"><input type="checkbox"> Run once a day automatically</label>
+  </div>
+
+  <div class="page">
+    <div class="bar">walgreens.com/offers</div>
+    <div class="grid">
+      <div class="card">$3 off<span>Clipped</span></div>
+      <div class="card">$5 off<span>Clipped</span></div>
+      <div class="card">$2 off<span>Clipped</span></div>
+      <div class="card">$1.50 off<span>Clipped</span></div>
+      <div class="card todo">$4 off<span>Clip</span></div>
+      <div class="card todo">$1 off<span>Clip</span></div>
+      <div class="card todo">$2 off<span>Clip</span></div>
+    </div>
+    <div id="gbc-panel">
+      <div class="t">GroceryBot · Walgreens</div>
+      <div>Clipping… 164 clipped.</div>
+      <div class="bar2"><i></i></div>
+      <button>Stop</button>
+    </div>
+  </div>
+</body>
+</html>
