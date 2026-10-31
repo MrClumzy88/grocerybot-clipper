@@ -48,6 +48,8 @@ if (manifest) {
     manifest.background?.service_worker,
     manifest.action?.default_popup,
     ...(manifest.content_scripts || []).flatMap((c) => c.js || []),
+    ...Object.values(manifest.icons || {}),
+    ...Object.values(manifest.action?.default_icon || {}),
   ].filter(Boolean);
   for (const f of named) if (!existsSync(join(root, f))) fail(`manifest.json names ${f}, which doesn't exist`);
   if (!/^\d+\.\d+\.\d+$/.test(manifest.version || "")) fail(`manifest version "${manifest.version}" isn't x.y.z`);

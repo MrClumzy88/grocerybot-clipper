@@ -1,7 +1,9 @@
-# GroceryBot Clipper
+# <img src="icons/icon-128.png" alt="" width="40" align="top"> GroceryBot Clipper
 
 A small Chrome extension that clips **every** digital coupon on your grocery
 accounts in one click, using the browser you're already signed in with.
+
+![The GroceryBot Clipper popup showing each store's last result, next to a store's coupon page with the progress panel clipping coupons](docs/screenshot.png)
 
 | Store | Status | How it clips |
 |---|---|---|
@@ -55,8 +57,9 @@ The popup remembers each store's last result, for example
 
 The extension doesn't log in for you and never sees your password. It runs
 inside the store's own page, in the session you already have, and makes the
-same requests the store's **Clip** button makes (on Walmart, which only accepts
-requests from its own site code, it presses the buttons instead):
+same requests the store's **Clip** button makes. (Walmart, CVS, Walgreens and
+BJ's only accept requests from their own site code, so there it presses the
+store's own buttons instead.)
 
 1. Fetch the full list of offers with their clipped/unclipped status.
 2. Send one clip request per unclipped offer, with a short random pause between
@@ -65,9 +68,14 @@ requests from its own site code, it presses the buttons instead):
    asks for a human check (CAPTCHA), or starts refusing requests. It never
    tries to get around those; complete the check yourself and run it again.
 
-Nothing leaves your browser except those requests to the store itself. There are
-no servers, no analytics and no tracking. Results are kept in the extension's
-local storage only.
+Nothing leaves your browser except those requests to the store itself, plus a
+check with GitHub (at most every six hours) for a newer version. There are no
+servers, no analytics and no tracking. Results are kept in the extension's
+local storage only. See the [privacy policy](PRIVACY.md).
+
+**Why it asks for access to so many sites:** Chrome needs permission for each
+store's website before the extension can run on its coupon page. It only acts
+on those stores' pages, and only when you start a run (or turn on the daily run).
 
 ## Project layout
 
@@ -76,6 +84,9 @@ manifest.json        Chrome extension manifest (MV3)
 background.js        Opens store tabs, runs stores one at a time, saves results
 stores.js            The list of supported stores
 popup.html/.js/.css  The toolbar popup
+icons/              Extension icons (icon.svg is the source)
+scripts/check.mjs    Checks run on every pull request
+docs/               README screenshot and its source page
 content/bridge.js    Relays messages between the page and the extension
 content/runner.js    Shared progress panel, pacing and result counting
 content/<store>.js   One adapter per store
