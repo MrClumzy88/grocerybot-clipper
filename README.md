@@ -10,7 +10,7 @@ accounts in one click, using the browser you're already signed in with.
 | Albertsons family: Albertsons, Tom Thumb, Safeway, Vons, Randalls, Jewel-Osco, Acme, Shaw's, Star Market, Pavilions, Andronico's, Carrs, Haggen, Kings, Balducci's | ✅ Working (tested on Tom Thumb) | The "for U" coupon gallery and clip requests. Never touches points-redemption rewards. |
 | CVS ExtraCare | ✅ Working | Presses the page's own "Send to card" buttons (CVS only accepts its own page's requests). Sends ExtraBucks rewards to your card too, which spends nothing. |
 | Walgreens | ✅ Working | Presses the page's own "Clip" buttons. Accounts hold up to 200 clipped coupons, so the biggest dollar amounts go first. |
-| BJ's Wholesale Club | 🧪 New, being tested | Presses the page's own "CLIP" buttons on My Coupons, biggest dollar amounts first. |
+| BJ's Wholesale Club | ✅ Working | Presses the page's own "CLIP" buttons on My Coupons, biggest dollar amounts first. |
 | Kroger family: Kroger, Ralphs, Fry's, King Soopers, Fred Meyer, Smith's, QFC, Dillons, City Market, Baker's, Gerbes, Jay C, Pay Less, Mariano's, Pick 'n Save, Metro Market, Foods Co, Food 4 Less | ✅ Working (tested on Kroger) | Kroger's coupon list and clip requests. Kroger limits how many coupons a card holds, so the most valuable coupons are clipped first. |
 | Walmart Cash | ✅ Working | Presses the page's own "Get this offer" and "Next page" buttons, so Walmart's code sends every request. Slower than the others and more likely to break when Walmart redesigns the page. |
 
