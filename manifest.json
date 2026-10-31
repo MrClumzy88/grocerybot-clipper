@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GroceryBot Clipper",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Clips every digital coupon on H-E-B, Target, Walmart, CVS, Walgreens, BJ’s, Kroger-family and Albertsons-family stores using your signed-in session.",
   "icons": {
     "16": "icons/icon-16.png",
