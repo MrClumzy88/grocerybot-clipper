@@ -58,7 +58,7 @@
             if (!(await waitFor(ctx, () => claimed(card), 5000))) return false;
             await ctx.sleep(1200);
             return claimed(card);
-          }, [700, 1400]);
+          }, [1500, 3000]);
           failStreak = ok ? 0 : failStreak + 1;
           if (failStreak >= 5) throw ctx.fail("blocked", "Walmart stopped accepting offers. Wait a while, reload the page, and run again.");
         }
