@@ -9,7 +9,7 @@ accounts in one click, using the browser you're already signed in with.
 | Target Circle | ✅ Working | Target's offer list and its "save offer" request (only *Coupons to apply* need saving; other Circle deals apply automatically) |
 | Albertsons family: Albertsons, Tom Thumb, Safeway, Vons, Randalls, Jewel-Osco, Acme, Shaw's, Star Market, Pavilions, Andronico's, Carrs, Haggen, Kings, Balducci's | ✅ Working (tested on Tom Thumb) | The "for U" coupon gallery and clip requests. Never touches points-redemption rewards. |
 | Kroger family: Kroger, Ralphs, Fry's, King Soopers, Fred Meyer, Smith's, QFC, Dillons, City Market, Baker's, Gerbes, Jay C, Pay Less, Mariano's, Pick 'n Save, Metro Market, Foods Co, Food 4 Less | ✅ Working (tested on Kroger) | Kroger's coupon list and clip requests. Kroger limits how many coupons a card holds, so the most valuable coupons are clipped first. |
-| Walmart Cash | ✅ Working | Presses the page's own "Get this offer" and "Next page" buttons, so Walmart's code sends every request. Slower than the others and more likely to break when Walmart redesigns the page. Walmart may pause you partway through a long run; run it again later and it picks up where it left off. |
+| Walmart Cash | ✅ Working | Presses the page's own "Get this offer" and "Next page" buttons, so Walmart's code sends every request. Slower than the others and more likely to break when Walmart redesigns the page. |
 
 ## Install
 
