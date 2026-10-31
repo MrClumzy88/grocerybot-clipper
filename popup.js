@@ -118,6 +118,37 @@ for (const s of STORES) {
 runAll.addEventListener("click", () => chrome.runtime.sendMessage({ type: "run" }));
 daily.addEventListener("change", () => saveSettings({ daily: daily.checked }));
 
+// ── "Update available" notice ─────────────────────────────────────────────
+// Installs from GitHub don't update themselves, so the popup compares this
+// version with the latest release (checked at most every 6 hours).
+const RELEASES = "https://api.github.com/repos/MrClumzy88/grocerybot-clipper/releases/latest";
+const newer = (a, b) => {
+  const pa = a.split(".").map(Number), pb = b.split(".").map(Number);
+  for (let i = 0; i < 3; i++) if ((pa[i] || 0) !== (pb[i] || 0)) return (pa[i] || 0) > (pb[i] || 0);
+  return false;
+};
+async function checkForUpdate() {
+  const installed = chrome.runtime.getManifest().version;
+  let { latestRelease: latest } = await chrome.storage.local.get("latestRelease");
+  if (!latest || Date.now() - latest.checkedAt > 6 * 60 * 60 * 1000) {
+    try {
+      const r = await fetch(RELEASES, { headers: { Accept: "application/vnd.github+json" } });
+      if (r.ok) {
+        const j = await r.json();
+        latest = { version: String(j.tag_name || "").replace(/^v/, ""), url: j.html_url, checkedAt: Date.now() };
+        await chrome.storage.local.set({ latestRelease: latest });
+      }
+    } catch {}
+  }
+  if (latest?.version && newer(latest.version, installed)) {
+    const link = document.getElementById("update");
+    link.href = latest.url;
+    link.textContent = `Update available: version ${latest.version} (you have ${installed}) →`;
+    link.hidden = false;
+  }
+}
+checkForUpdate();
+
 const refresh = async () => {
   const data = await chrome.storage.local.get(["settings", "results", "live"]);
   settings = data.settings || {};

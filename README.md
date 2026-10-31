@@ -16,11 +16,25 @@ accounts in one click, using the browser you're already signed in with.
 
 ## Install
 
-1. Download this repository (green **Code** button → **Download ZIP**) and unzip it.
+1. Download the ZIP from the [latest release](https://github.com/MrClumzy88/grocerybot-clipper/releases/latest)
+   and unzip it somewhere you'll keep it (for example `Documents\grocerybot-clipper`).
 2. Open `chrome://extensions` in Chrome (or Edge or Brave).
 3. Turn on **Developer mode** (top right).
 4. Click **Load unpacked** and choose the unzipped folder (the one with `manifest.json`).
 5. Pin the extension from the puzzle-piece menu so the button is easy to find.
+
+## Updating
+
+Extensions installed this way don't update themselves. When a new version is
+out, the popup shows **Update available** with a link. To be emailed instead,
+click **Watch → Custom → Releases** at the top of this page.
+
+To update without losing your store choices and history:
+
+1. Download the new release ZIP.
+2. Unzip it **over your existing folder**, replacing the old files. (A new
+   folder counts as a different extension to Chrome and starts from scratch.)
+3. In `chrome://extensions`, click the ↻ reload arrow on GroceryBot Clipper.
 
 ## Use
 

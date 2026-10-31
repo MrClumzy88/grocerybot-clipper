@@ -25,6 +25,18 @@ can include is what the site sends when you clip one coupon by hand:
 DevTools → Network → clip a coupon → the request's URL and the shape of its
 body (with your own IDs and tokens removed).
 
+## Before you open a pull request
+
+Run `node scripts/check.mjs` (Node 18 or newer). GitHub runs the same checks
+on every pull request: every script parses, the manifest only names files that
+exist, store ids are unique, and nothing looks like personal data.
+
+## Releasing (maintainers)
+
+Bump `version` in manifest.json, merge to `main`, then push a matching tag
+(`git tag v0.7.0 && git push origin v0.7.0`). The Release workflow builds the
+installable ZIP and publishes it; installed copies show "Update available".
+
 ## Pull requests
 
 - One store per adapter file in `content/`, registered with the shared runner.
