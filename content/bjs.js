@@ -61,7 +61,7 @@
           b.scrollIntoView({ block: "center" });
           b.click();
           return waitFor(ctx, () => clipped(b), 6000);
-        }, [700, 1400]);
+        }, [450, 900]);
         failStreak = ok ? 0 : failStreak + 1;
         if (failStreak >= 5) throw ctx.fail("error", "BJ's stopped accepting clips. Your card may be full; check BJ's page for a message.");
       }

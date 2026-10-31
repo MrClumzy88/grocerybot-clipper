@@ -65,8 +65,13 @@ page at run time.
   clip = GET `…/v1.0/store/<club>/coupons/activate?offerId=…` with the site's
   auth, so the adapter drives the page: `/myCoupons` loads 60 more per scroll;
   buttons `button[data-testid="coupon-btn"]` reading "CLIP"; success = the
-  button is gone or no longer says CLIP. (fenerty/bjs-coupon-clipper is a
-  separate, unlicensed userscript; don't copy from it.)
+  button is gone or no longer says CLIP. The list POST body is
+  `{pagesize, brand, category, indexForPagination, isPrev, isNext, searchString,
+  membershipNumber, zipcode}`, but direct requests from extension code (even
+  with cookies) get Akamai "Access Denied" 403, so a request-based adapter isn't
+  viable; don't try to get past that. Pause is 450–900 ms per coupon.
+  (fenerty/bjs-coupon-clipper is a separate, unlicensed userscript; don't copy
+  from it.)
 - **Walmart Cash**: the offer API (persisted `GetAllOffersPageQuery`,
   `clipRewardPromotionEngine`) answers HTTP 429 unless the site's own tracing
   headers are present, so the adapter drives the page instead: cards in
