@@ -47,6 +47,26 @@ page at run time.
   /atlas/ requests. Never copy `x-kroger-channel` (the site sets it several
   times; merged values are rejected). Cards hold about 250 coupons (422
   `TooManyCouponsOnCard`), so the adapter clips highest `savings` first.
+- **CVS ExtraCare** (`content/cvs.js`): the send-to-card POST carries an
+  encrypted account key (`ecKey`), hashed card number, device token and GRID
+  tracing header from CVS's own code, so the adapter drives the page:
+  `/extracare/home` loads 10 more coupons per scroll to the bottom; cards are
+  `.coupon-container-new-ui`, button `button.sc-send-to-card-action` ("Send to
+  card"); success = the card says "On card".
+- **Walgreens** (`content/walgreens.js`): clip is a plain POST
+  `{id, offerStartDate, offerEndDate, source, redemptionType}`, but its URL comes
+  from per-account page config, so the adapter drives the page instead:
+  `/offers/offers.jsp` loads ~50 more per scroll; buttons
+  `button[id^="clip"]` with aria-label "Clip coupon"/"Clip rebate"; success =
+  the button disappears. Accounts hold 200 clipped coupons
+  (`/offers/v1/svc/coupons/clipped` → `summary.maxClippingLimit`), so the
+  adapter clips the largest "$" amount in the card text first.
+- **BJ's** (`content/bjs.js`): list = `api.bjs.com/digital/live/api/v1.0/member/available/offers`;
+  clip = GET `…/v1.0/store/<club>/coupons/activate?offerId=…` with the site's
+  auth, so the adapter drives the page: `/myCoupons` loads 60 more per scroll;
+  buttons `button[data-testid="coupon-btn"]` reading "CLIP"; success = the
+  button is gone or no longer says CLIP. (fenerty/bjs-coupon-clipper is a
+  separate, unlicensed userscript; don't copy from it.)
 - **Walmart Cash**: the offer API (persisted `GetAllOffersPageQuery`,
   `clipRewardPromotionEngine`) answers HTTP 429 unless the site's own tracing
   headers are present, so the adapter drives the page instead: cards in

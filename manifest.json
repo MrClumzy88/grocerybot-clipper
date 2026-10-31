@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "GroceryBot Clipper",
-  "version": "0.3.0",
-  "description": "Clips every digital coupon on H-E-B, Target, Kroger-family and Albertsons-family stores using your signed-in session.",
+  "version": "0.5.0",
+  "description": "Clips every digital coupon on H-E-B, Target, Walmart, CVS, Walgreens, BJ’s, Kroger-family and Albertsons-family stores using your signed-in session.",
   "minimum_chrome_version": "111",
   "permissions": [
     "storage",
@@ -46,7 +46,10 @@
     "https://www.picknsave.com/*",
     "https://www.metromarket.net/*",
     "https://www.foodsco.net/*",
-    "https://www.food4less.com/*"
+    "https://www.food4less.com/*",
+    "https://www.cvs.com/*",
+    "https://www.walgreens.com/*",
+    "https://www.bjs.com/*"
   ],
   "background": {
     "service_worker": "background.js",
@@ -94,7 +97,10 @@
         "https://www.picknsave.com/*",
         "https://www.metromarket.net/*",
         "https://www.foodsco.net/*",
-        "https://www.food4less.com/*"
+        "https://www.food4less.com/*",
+        "https://www.cvs.com/*",
+        "https://www.walgreens.com/*",
+        "https://www.bjs.com/*"
       ],
       "js": [
         "content/bridge.js"
@@ -210,6 +216,39 @@
       "js": [
         "content/runner.js",
         "content/kroger.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.cvs.com/*"
+      ],
+      "js": [
+        "content/runner.js",
+        "content/cvs.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.walgreens.com/*"
+      ],
+      "js": [
+        "content/runner.js",
+        "content/walgreens.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.bjs.com/*"
+      ],
+      "js": [
+        "content/runner.js",
+        "content/bjs.js"
       ],
       "world": "MAIN",
       "run_at": "document_idle"

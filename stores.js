@@ -49,6 +49,9 @@ const krogerFamily = [
 export const STORES = [
   { id: "heb", name: "H-E-B", adapter: "heb", host: "www.heb.com", url: "https://www.heb.com/digital-coupon/coupon-selection/all-coupons" },
   { id: "target", name: "Target Circle", adapter: "target", host: "www.target.com", url: "https://www.target.com/deals/all?facet=tap_to_apply" },
+  { id: "cvs", name: "CVS ExtraCare", adapter: "cvs", host: "www.cvs.com", url: "https://www.cvs.com/extracare/home" },
+  { id: "bjs", name: "BJ's", adapter: "bjs", host: "www.bjs.com", url: "https://www.bjs.com/myCoupons" },
+  { id: "walgreens", name: "Walgreens", adapter: "walgreens", host: "www.walgreens.com", url: "https://www.walgreens.com/offers/offers.jsp" },
   ...krogerFamily,
   ...albertsonsFamily,
   { id: "walmart", name: "Walmart Cash", adapter: "walmart", host: "www.walmart.com", url: "https://www.walmart.com/offer/all-offers" },
