@@ -1,5 +1,8 @@
 # <img src="icons/icon-128.png" alt="" width="40" align="top"> CouponSweep: Auto Coupon Clipper
 
+**Clip every coupon at every store you shop, for free. Open source, and it
+never sees your password.**
+
 **Automatically clip every digital coupon in one click.** CouponSweep is a free,
 open-source Chrome extension that loads all of your store's digital coupons to
 your card: Kroger, H-E-B, Target Circle, Walmart Cash, CVS ExtraCare,
@@ -21,7 +24,8 @@ and sends nothing anywhere except to the store itself.
 - **Clip all coupons at once.** One run clips every available coupon, often hundreds per store, while you do something else.
 - **One button for every store.** Check the stores you shop at and click *Clip all checked stores*, or let it run once a day.
 - **Smart about limits.** Where a store caps how many coupons a card can hold (Kroger, Walgreens), the biggest savings get clipped first.
-- **Private.** No account, no servers, no tracking. See the [privacy policy](PRIVACY.md).
+- **Never sees your password, and you can check.** It works in the session you're already signed in with. No account, no servers, no tracking, and the code is all here. See the [privacy policy](PRIVACY.md).
+- **Gentle on your account.** One coupon at a time with pauses, and it stops the moment a store pushes back.
 - **Works in Chrome, Edge and Brave.**
 
 ## Supported stores

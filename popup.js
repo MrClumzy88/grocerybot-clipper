@@ -9,6 +9,11 @@ const live = document.getElementById("live");
 const runAll = document.getElementById("run-all");
 const daily = document.getElementById("daily");
 const notice = document.getElementById("notice");
+
+// Donation page (GitHub Sponsors, Ko-fi…). The link stays hidden until this
+// is set; see ROADMAP.md.
+const DONATE_URL = "";
+if (DONATE_URL) Object.assign(document.getElementById("donate"), { href: DONATE_URL, hidden: false });
 const rows = {};
 let settings = {};
 
@@ -49,7 +54,7 @@ function render({ results = {}, live: now }) {
     const p = row.querySelector(".result");
     const running = now?.store === s.id;
     p.className = `result ${running ? "running" : r?.status || ""}`;
-    p.textContent = s.comingSoon ? "Coming soon."
+    p.textContent = s.comingSoon ? "In development."
       : running ? now.text
       : r ? `${r.message} · ${ago(r.at)}` : "Not run yet.";
     row.querySelector(".run").disabled = !!now || !!s.comingSoon || !settings.acknowledged;

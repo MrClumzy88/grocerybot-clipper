@@ -18,6 +18,9 @@ Shopping
 
 ## Description
 
+Clip every coupon at every store you shop, for free. Open source, and it
+never sees your password.
+
 Clip every digital coupon on your store account in one click. CouponSweep
 loads all of your store's digital coupons to your card, so you never have to
 press "Clip" or "Load to Card" hundreds of times again.
@@ -51,7 +54,10 @@ Free and open source. No account, no subscription, no password.
 • Walgreens digital coupons
 • BJ's Wholesale Club coupons
 
-Want another store? Request it on GitHub.
+In development: Publix, Meijer mPerks, ShopRite, Stop & Shop, Giant, Food
+Lion, Hannaford, Dollar General, Hy-Vee, Harris Teeter, Wegmans, and card
+offers (Amex, Chase, Citi, Bank of America, Capital One). New stores are added
+regularly. Want another one? Request it on GitHub.
 
 ★ This clips store coupons, not promo codes
 CouponSweep loads the digital coupons your store offers onto your loyalty

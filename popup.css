@@ -93,6 +93,8 @@ button.primary {
   border-radius: 6px;
 }
 .notice p { margin: 0 0 8px; }
+.donate { display: block; margin-top: 12px; color: var(--accent); text-decoration: none; }
+.donate:hover { text-decoration: underline; }
 .disclaimer { margin: 12px 0 0; font-size: 11px; color: var(--muted); }
 details { margin: 0 0 12px; }
 summary { cursor: pointer; color: var(--muted); padding: 4px 0; }

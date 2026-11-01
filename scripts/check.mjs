@@ -59,7 +59,7 @@ if (manifest) {
 const { STORES } = await import(new URL("../stores.js", import.meta.url));
 const ids = STORES.map((s) => s.id);
 for (const id of new Set(ids.filter((id, i) => ids.indexOf(id) !== i))) fail(`store id "${id}" is used twice`);
-for (const s of STORES) if (!existsSync(join(root, "content", `${s.adapter}.js`))) fail(`store ${s.id} uses missing adapter content/${s.adapter}.js`);
+for (const s of STORES) if (!s.comingSoon && !existsSync(join(root, "content", `${s.adapter}.js`))) fail(`store ${s.id} uses missing adapter content/${s.adapter}.js`);
 
 // 4. Nothing that looks like personal data.
 const allowedEmails = /noreply@anthropic\.com|@users\.noreply\.github\.com/i;
