@@ -38,6 +38,10 @@ The basic clipping stays free. Ideas for an optional upgrade:
 - New-coupon notifications.
 - Categories and favourites: clip or highlight the coupons you care about first.
 - Promo codes at checkout.
+- Coupon stacking: for an item, show every discount that can combine (store
+  digital coupon + manufacturer coupon + rebate apps like Ibotta + the current
+  sale), and flag stacks worth making a trip for. Needs offer data from more
+  than one source, and each store's stacking rules.
 
 ## Competitors (as of 2026-11-01)
 
