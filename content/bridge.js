@@ -14,6 +14,17 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
   sendResponse({ ready });
 });
 
+// The page-world runner can't read extension storage, so mirror whether the
+// user has accepted the popup's notice onto the page.
+function syncAck(settings) {
+  if (settings?.acknowledged) document.documentElement.dataset.gbcAck = "1";
+  else delete document.documentElement.dataset.gbcAck;
+}
+chrome.storage.local.get("settings").then(({ settings }) => syncAck(settings));
+chrome.storage.onChanged.addListener((changes) => {
+  if (changes.settings) syncAck(changes.settings.newValue);
+});
+
 function forward(type) {
   window.addEventListener(type, (e) => {
     let data;

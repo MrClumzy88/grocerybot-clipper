@@ -13,6 +13,15 @@
 
   <a id="update" class="update" target="_blank" rel="noopener" hidden></a>
 
+  <div id="notice" class="notice" hidden>
+    <p><strong>Before you start.</strong> CouponSweep is an unofficial tool, not
+    affiliated with or endorsed by any store. Automatically clipping coupons may
+    go against a store's terms of use, and a store could limit or close an
+    account it thinks is automated. Use it only on your own account, at your
+    own risk.</p>
+    <button id="accept" class="primary">I understand</button>
+  </div>
+
   <p id="empty" class="hint" hidden>Check the stores you shop at.</p>
   <ul id="stores"></ul>
 
@@ -25,6 +34,9 @@
   <p id="live" class="live" hidden></p>
 
   <label class="daily"><input type="checkbox" id="daily"> Run once a day automatically</label>
+
+  <p class="disclaimer">Unofficial; not affiliated with any store. Automated
+  clipping may go against a store's terms. Use at your own risk.</p>
 
   <template id="store-row">
     <li>

@@ -9,6 +9,11 @@ pharmacy chains. No more clicking "Clip" hundreds of times.
 It runs in the browser you're already signed in with, never sees your password,
 and sends nothing anywhere except to the store itself.
 
+> **Unofficial tool, use at your own risk.** CouponSweep isn't affiliated with
+> or endorsed by any store. Automatically clipping coupons may go against a
+> store's terms of use, and a store could limit or close an account it thinks
+> is automated. Use it only on your own account. See the [Disclaimer](#disclaimer).
+
 ![The CouponSweep popup showing each store's last result, next to a store's coupon page with the progress panel clipping coupons](docs/screenshot.png)
 
 **Why people use it**
@@ -182,9 +187,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add a store.
 ## Disclaimer
 
 This is an unofficial personal tool. It isn't affiliated with or endorsed by
-H-E-B, Target, Walmart or any other retailer. Automating coupon clipping may be
-against a store's terms of use. Use it at your own risk, for your own account,
-and double-check your coupons before you shop.
+H-E-B, Target, Walmart or any other retailer, and store names are used only to
+say which sites it works with. Automating coupon clipping may be against a
+store's terms of use, and a store could limit, suspend or close an account it
+believes is automated. It's meant for personal, low-volume use on your own
+account: it clips one coupon at a time with pauses, and stops when a store
+pushes back. Use it at your own risk, and double-check your coupons before you
+shop. The software is provided as is, without warranty (see the [license](LICENSE)).
+
+The extension shows this notice the first time you open it, and won't clip
+anything until you accept it.
 
 ## License
 

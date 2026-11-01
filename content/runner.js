@@ -70,7 +70,10 @@
       if (running) stopRequested = true;
       else { panel.remove(); panel = null; }
     };
-    panel.append(title, msg, bar, btn);
+    const note = document.createElement("div");
+    note.style.cssText = "margin-top:10px;font-size:12px;color:#94a3b8";
+    note.textContent = "Unofficial; not affiliated with any store. Automated clipping may go against the store's terms. Use at your own risk.";
+    panel.append(title, msg, bar, btn, note);
     document.body.append(panel);
     return panel;
   }
@@ -110,7 +113,14 @@
       "position:fixed;right:16px;bottom:16px;z-index:2147483647;background:#16a34a;color:#fff;" +
       "border:0;border-radius:999px;padding:12px 18px;cursor:pointer;" +
       "font:600 15px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.3)";
-    fab.onclick = () => run({ auto: false });
+    fab.onclick = () => {
+      // Nothing runs until the user has accepted the notice in the popup
+      // (content/bridge.js mirrors that flag onto the page).
+      if (document.documentElement.dataset.gbcAck === "1") return run({ auto: false });
+      setPanel("Open the CouponSweep button in Chrome's toolbar and read the notice there first.");
+      panel.querySelector('[data-role="btn"]').textContent = "Close";
+      syncFab();
+    };
     document.body.append(fab);
   }
 
