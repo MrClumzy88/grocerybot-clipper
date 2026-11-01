@@ -36,6 +36,8 @@ exist, store ids are unique, and nothing looks like personal data.
 Bump `version` in manifest.json, merge to `main`, then push a matching tag
 (`git tag v0.7.0 && git push origin v0.7.0`). The Release workflow builds the
 installable ZIP and publishes it; installed copies show "Update available".
+It also attaches `couponsweep-vX.Y.Z-webstore.zip` (manifest.json at the top
+level), which is the file to upload to the Chrome Web Store dashboard.
 
 ## Pull requests
 

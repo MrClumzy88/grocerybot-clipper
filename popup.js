@@ -102,7 +102,10 @@ mine.addEventListener("drop", (e) => {
 for (const s of STORES) {
   const row = tpl.content.firstElementChild.cloneNode(true);
   row.dataset.id = s.id;
-  row.querySelector(".name span").textContent = s.name;
+  const link = row.querySelector(".store-link");
+  link.textContent = s.name;
+  link.href = s.url;
+  link.title = `Open ${s.name} coupons`;
   row.querySelector(".enabled").addEventListener("change", (e) => {
     saveSettings({ enabled: { ...settings.enabled, [s.id]: e.target.checked } });
   });
@@ -120,7 +123,9 @@ daily.addEventListener("change", () => saveSettings({ daily: daily.checked }));
 
 // ── "Update available" notice ─────────────────────────────────────────────
 // Installs from GitHub don't update themselves, so the popup compares this
-// version with the latest release (checked at most every 6 hours).
+// version with the latest release (checked at most every 6 hours). Chrome Web
+// Store installs update on their own (Chrome adds update_url to their
+// manifest), so they skip the check.
 const RELEASES = "https://api.github.com/repos/MrClumzy88/couponsweep/releases/latest";
 const newer = (a, b) => {
   const pa = a.split(".").map(Number), pb = b.split(".").map(Number);
@@ -128,7 +133,8 @@ const newer = (a, b) => {
   return false;
 };
 async function checkForUpdate() {
-  const installed = chrome.runtime.getManifest().version;
+  const { version: installed, update_url } = chrome.runtime.getManifest();
+  if (update_url) return;
   let { latestRelease: latest } = await chrome.storage.local.get("latestRelease");
   if (!latest || Date.now() - latest.checkedAt > 6 * 60 * 60 * 1000) {
     try {
