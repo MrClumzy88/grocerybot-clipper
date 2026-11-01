@@ -102,7 +102,10 @@ mine.addEventListener("drop", (e) => {
 for (const s of STORES) {
   const row = tpl.content.firstElementChild.cloneNode(true);
   row.dataset.id = s.id;
-  row.querySelector(".name span").textContent = s.name;
+  const link = row.querySelector(".store-link");
+  link.textContent = s.name;
+  link.href = s.url;
+  link.title = `Open ${s.name} coupons`;
   row.querySelector(".enabled").addEventListener("change", (e) => {
     saveSettings({ enabled: { ...settings.enabled, [s.id]: e.target.checked } });
   });
