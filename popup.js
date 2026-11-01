@@ -8,6 +8,12 @@ const tpl = document.getElementById("store-row");
 const live = document.getElementById("live");
 const runAll = document.getElementById("run-all");
 const daily = document.getElementById("daily");
+const notice = document.getElementById("notice");
+
+// Donation page (GitHub Sponsors, Ko-fi…). The link stays hidden until this
+// is set; see ROADMAP.md.
+const DONATE_URL = "";
+if (DONATE_URL) Object.assign(document.getElementById("donate"), { href: DONATE_URL, hidden: false });
 const rows = {};
 let settings = {};
 
@@ -48,15 +54,17 @@ function render({ results = {}, live: now }) {
     const p = row.querySelector(".result");
     const running = now?.store === s.id;
     p.className = `result ${running ? "running" : r?.status || ""}`;
-    p.textContent = s.comingSoon ? "Coming soon."
+    p.textContent = s.comingSoon ? "In development."
       : running ? now.text
       : r ? `${r.message} · ${ago(r.at)}` : "Not run yet.";
-    row.querySelector(".run").disabled = !!now || !!s.comingSoon;
+    row.querySelector(".run").disabled = !!now || !!s.comingSoon || !settings.acknowledged;
   }
   empty.hidden = count > 0;
   if (!count) moreBox.open = true;
   daily.checked = settings.daily ?? false;
-  runAll.disabled = !!now || !STORES.some((s) => settings.enabled?.[s.id] && !s.comingSoon);
+  daily.disabled = !settings.acknowledged;
+  notice.hidden = !!settings.acknowledged;
+  runAll.disabled = !!now || !settings.acknowledged || !STORES.some((s) => settings.enabled?.[s.id] && !s.comingSoon);
   live.hidden = !now;
   if (now) live.textContent = `Working on ${STORES.find((s) => s.id === now.store)?.name || now.store}…`;
 }
@@ -120,6 +128,7 @@ for (const s of STORES) {
 }
 runAll.addEventListener("click", () => chrome.runtime.sendMessage({ type: "run" }));
 daily.addEventListener("change", () => saveSettings({ daily: daily.checked }));
+document.getElementById("accept").addEventListener("click", () => saveSettings({ acknowledged: true }));
 
 // ── "Update available" notice ─────────────────────────────────────────────
 // Installs from GitHub don't update themselves, so the popup compares this

@@ -1,5 +1,8 @@
 # <img src="icons/icon-128.png" alt="" width="40" align="top"> CouponSweep: Auto Coupon Clipper
 
+**Clip every coupon at every store you shop, for free. Open source, and it
+never sees your password.**
+
 **Automatically clip every digital coupon in one click.** CouponSweep is a free,
 open-source Chrome extension that loads all of your store's digital coupons to
 your card: Kroger, H-E-B, Target Circle, Walmart Cash, CVS ExtraCare,
@@ -9,6 +12,11 @@ pharmacy chains. No more clicking "Clip" hundreds of times.
 It runs in the browser you're already signed in with, never sees your password,
 and sends nothing anywhere except to the store itself.
 
+> **Unofficial tool, use at your own risk.** CouponSweep isn't affiliated with
+> or endorsed by any store. Automatically clipping coupons may go against a
+> store's terms of use, and a store could limit or close an account it thinks
+> is automated. Use it only on your own account. See the [Disclaimer](#disclaimer).
+
 ![The CouponSweep popup showing each store's last result, next to a store's coupon page with the progress panel clipping coupons](docs/screenshot.png)
 
 **Why people use it**
@@ -16,7 +24,8 @@ and sends nothing anywhere except to the store itself.
 - **Clip all coupons at once.** One run clips every available coupon, often hundreds per store, while you do something else.
 - **One button for every store.** Check the stores you shop at and click *Clip all checked stores*, or let it run once a day.
 - **Smart about limits.** Where a store caps how many coupons a card can hold (Kroger, Walgreens), the biggest savings get clipped first.
-- **Private.** No account, no servers, no tracking. See the [privacy policy](PRIVACY.md).
+- **Never sees your password, and you can check.** It works in the session you're already signed in with. No account, no servers, no tracking, and the code is all here. See the [privacy policy](PRIVACY.md).
+- **Gentle on your account.** One coupon at a time with pauses, and it stops the moment a store pushes back.
 - **Works in Chrome, Edge and Brave.**
 
 ## Supported stores
@@ -182,9 +191,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add a store.
 ## Disclaimer
 
 This is an unofficial personal tool. It isn't affiliated with or endorsed by
-H-E-B, Target, Walmart or any other retailer. Automating coupon clipping may be
-against a store's terms of use. Use it at your own risk, for your own account,
-and double-check your coupons before you shop.
+H-E-B, Target, Walmart or any other retailer, and store names are used only to
+say which sites it works with. Automating coupon clipping may be against a
+store's terms of use, and a store could limit, suspend or close an account it
+believes is automated. It's meant for personal, low-volume use on your own
+account: it clips one coupon at a time with pauses, and stops when a store
+pushes back. Use it at your own risk, and double-check your coupons before you
+shop. The software is provided as is, without warranty (see the [license](LICENSE)).
+
+The extension shows this notice the first time you open it, and won't clip
+anything until you accept it.
 
 ## License
 

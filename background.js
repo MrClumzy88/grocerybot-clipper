@@ -2,7 +2,8 @@
 // tells the page-world runner to go, and waits for its result.
 //
 // Storage (chrome.storage.local):
-//   settings: { enabled: {heb: true, …}, pinned: {heb: true, …}, order: [ids], daily: false }
+//   settings: { enabled: {heb: true, …}, pinned: {heb: true, …}, order: [ids], daily: false,
+//              acknowledged: true once the user accepts the popup's notice }
 //   results:  { heb: {status, total, already, clipped, failed, message, at}, … }
 //   live:     { store, text } while a run is in progress, else null
 

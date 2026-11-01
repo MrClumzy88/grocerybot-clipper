@@ -46,6 +46,31 @@ const krogerFamily = [
   id, name, adapter: "kroger", host: `www.${domain}`, url: `https://www.${domain}/savings/cl/coupons/`,
 }));
 
+// In development: shown in the popup (greyed out) so people can see what's
+// next. Each needs an adapter, manifest entries and testing on a signed-in
+// account before `comingSoon` comes off. See ROADMAP.md.
+const inDevelopment = [
+  ["publix", "Publix", "www.publix.com", "https://www.publix.com/savings/digital-coupons"],
+  ["meijer", "Meijer mPerks", "www.meijer.com", "https://www.meijer.com/shopping/coupons.html"],
+  ["shoprite", "ShopRite", "www.shoprite.com", "https://www.shoprite.com/digital-coupon"],
+  ["stopandshop", "Stop & Shop", "stopandshop.com", "https://stopandshop.com/coupons"],
+  ["giantfood", "Giant Food", "giantfood.com", "https://giantfood.com/coupons"],
+  ["giantfoodstores", "GIANT", "giantfoodstores.com", "https://giantfoodstores.com/coupons"],
+  ["martins", "Martin's", "martinsfoods.com", "https://martinsfoods.com/coupons"],
+  ["foodlion", "Food Lion", "www.foodlion.com", "https://www.foodlion.com/coupons"],
+  ["hannaford", "Hannaford", "www.hannaford.com", "https://www.hannaford.com/coupons"],
+  ["dollargeneral", "Dollar General", "www.dollargeneral.com", "https://www.dollargeneral.com/deals/coupons"],
+  ["hyvee", "Hy-Vee", "www.hy-vee.com", "https://www.hy-vee.com/deals/coupons"],
+  ["harristeeter", "Harris Teeter", "www.harristeeter.com", "https://www.harristeeter.com/savings/cl/coupons/"],
+  ["wegmans", "Wegmans", "www.wegmans.com", "https://www.wegmans.com/"],
+  ["unitedsupermarkets", "United Supermarkets", "www.unitedsupermarkets.com", "https://www.unitedsupermarkets.com/"],
+  ["amexoffers", "Amex Offers", "global.americanexpress.com", "https://global.americanexpress.com/offers"],
+  ["chaseoffers", "Chase Offers", "secure.chase.com", "https://www.chase.com/"],
+  ["citioffers", "Citi Merchant Offers", "online.citi.com", "https://online.citi.com/"],
+  ["bofadeals", "BankAmeriDeals", "secure.bankofamerica.com", "https://www.bankofamerica.com/"],
+  ["capitaloneoffers", "Capital One Offers", "capitaloneoffers.com", "https://capitaloneoffers.com/"],
+].map(([id, name, host, url]) => ({ id, name, host, url, adapter: null, comingSoon: true }));
+
 export const STORES = [
   { id: "heb", name: "H-E-B", adapter: "heb", host: "www.heb.com", url: "https://www.heb.com/digital-coupon/coupon-selection/all-coupons" },
   { id: "target", name: "Target Circle", adapter: "target", host: "www.target.com", url: "https://www.target.com/deals/all?facet=tap_to_apply" },
@@ -55,6 +80,7 @@ export const STORES = [
   ...krogerFamily,
   ...albertsonsFamily,
   { id: "walmart", name: "Walmart Cash", adapter: "walmart", host: "www.walmart.com", url: "https://www.walmart.com/offer/all-offers" },
+  ...inDevelopment,
 ];
 
 export const runnable = (s) => !s.comingSoon;
