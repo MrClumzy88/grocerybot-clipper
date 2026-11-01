@@ -121,7 +121,7 @@ daily.addEventListener("change", () => saveSettings({ daily: daily.checked }));
 // ── "Update available" notice ─────────────────────────────────────────────
 // Installs from GitHub don't update themselves, so the popup compares this
 // version with the latest release (checked at most every 6 hours).
-const RELEASES = "https://api.github.com/repos/MrClumzy88/grocerybot-clipper/releases/latest";
+const RELEASES = "https://api.github.com/repos/MrClumzy88/couponsweep/releases/latest";
 const newer = (a, b) => {
   const pa = a.split(".").map(Number), pb = b.split(".").map(Number);
   for (let i = 0; i < 3; i++) if ((pa[i] || 0) !== (pb[i] || 0)) return (pa[i] || 0) > (pb[i] || 0);

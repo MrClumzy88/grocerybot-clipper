@@ -1,4 +1,4 @@
-# GroceryBot Clipper — notes for contributors and coding agents
+# CouponSweep — notes for contributors and coding agents
 
 A Chrome MV3 extension that clips digital coupons from the user's own
 signed-in browser. README.md covers install, layout and how to add a store.

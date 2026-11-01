@@ -1,25 +1,44 @@
-# <img src="icons/icon-128.png" alt="" width="40" align="top"> GroceryBot Clipper
+# <img src="icons/icon-128.png" alt="" width="40" align="top"> CouponSweep: Auto Coupon Clipper
 
-A small Chrome extension that clips **every** digital coupon on your grocery
-accounts in one click, using the browser you're already signed in with.
+**Automatically clip every digital coupon in one click.** CouponSweep is a free,
+open-source Chrome extension that loads all of your store's digital coupons to
+your card: Kroger, H-E-B, Target Circle, Walmart Cash, CVS ExtraCare,
+Walgreens, BJ's, Safeway, Albertsons, Tom Thumb and about 30 more grocery and
+pharmacy chains. No more clicking "Clip" hundreds of times.
 
-![The GroceryBot Clipper popup showing each store's last result, next to a store's coupon page with the progress panel clipping coupons](docs/screenshot.png)
+It runs in the browser you're already signed in with, never sees your password,
+and sends nothing anywhere except to the store itself.
+
+![The CouponSweep popup showing each store's last result, next to a store's coupon page with the progress panel clipping coupons](docs/screenshot.png)
+
+**Why people use it**
+
+- **Clip all coupons at once.** One run clips every available coupon, often hundreds per store, while you do something else.
+- **One button for every store.** Check the stores you shop at and click *Clip all checked stores*, or let it run once a day.
+- **Smart about limits.** Where a store caps how many coupons a card can hold (Kroger, Walgreens), the biggest savings get clipped first.
+- **Private.** No account, no servers, no tracking. See the [privacy policy](PRIVACY.md).
+- **Works in Chrome, Edge and Brave.**
+
+## Supported stores
 
 | Store | Status | How it clips |
 |---|---|---|
-| H-E-B | ✅ Working | H-E-B's own coupon list and `CouponClip` request |
-| Target Circle | ✅ Working | Target's offer list and its "save offer" request (only *Coupons to apply* need saving; other Circle deals apply automatically) |
-| Albertsons family: Albertsons, Tom Thumb, Safeway, Vons, Randalls, Jewel-Osco, Acme, Shaw's, Star Market, Pavilions, Andronico's, Carrs, Haggen, Kings, Balducci's | ✅ Working (tested on Tom Thumb) | The "for U" coupon gallery and clip requests. Never touches points-redemption rewards. |
-| CVS ExtraCare | ✅ Working | Presses the page's own "Send to card" buttons (CVS only accepts its own page's requests). Sends ExtraBucks rewards to your card too, which spends nothing. |
-| Walgreens | ✅ Working | Presses the page's own "Clip" buttons. Accounts hold up to 200 clipped coupons, so the biggest dollar amounts go first. |
-| BJ's Wholesale Club | ✅ Working | Presses the page's own "CLIP" buttons on My Coupons, biggest dollar amounts first. |
-| Kroger family: Kroger, Ralphs, Fry's, King Soopers, Fred Meyer, Smith's, QFC, Dillons, City Market, Baker's, Gerbes, Jay C, Pay Less, Mariano's, Pick 'n Save, Metro Market, Foods Co, Food 4 Less | ✅ Working (tested on Kroger) | Kroger's coupon list and clip requests. Kroger limits how many coupons a card holds, so the most valuable coupons are clipped first. |
-| Walmart Cash | ✅ Working | Presses the page's own "Get this offer" and "Next page" buttons, so Walmart's code sends every request. Slower than the others and more likely to break when Walmart redesigns the page. |
+| **H-E-B** digital coupons | ✅ Working | H-E-B's own coupon list and clip request |
+| **Target Circle** offers | ✅ Working | Target's offer list and its "save offer" request (only *Coupons to apply* need saving; other Circle deals apply automatically) |
+| **Kroger** family digital coupons: Kroger, Ralphs, Fry's, King Soopers, Fred Meyer, Smith's, QFC, Dillons, City Market, Baker's, Gerbes, Jay C, Pay Less, Mariano's, Pick 'n Save, Metro Market, Foods Co, Food 4 Less | ✅ Working (tested on Kroger) | Kroger's coupon list and clip requests. Kroger limits how many coupons a card holds, so the most valuable coupons are clipped first. |
+| **Albertsons** family "for U" / Just for U coupons: Albertsons, Tom Thumb, Safeway, Vons, Randalls, Jewel-Osco, Acme, Shaw's, Star Market, Pavilions, Andronico's, Carrs, Haggen, Kings, Balducci's | ✅ Working (tested on Tom Thumb) | The "for U" coupon gallery and clip requests. Never touches points-redemption rewards. |
+| **Walmart Cash** offers | ✅ Working | Presses the page's own "Get this offer" and "Next page" buttons, so Walmart's code sends every request. Slower than the others and more likely to break when Walmart redesigns the page. |
+| **CVS ExtraCare** coupons (Send to card) | ✅ Working | Presses the page's own "Send to card" buttons (CVS only accepts its own page's requests). Sends ExtraBucks rewards to your card too, which spends nothing. |
+| **Walgreens** digital coupons | ✅ Working | Presses the page's own "Clip" buttons. Accounts hold up to 200 clipped coupons, so the biggest dollar amounts go first. |
+| **BJ's Wholesale Club** coupons | ✅ Working | Presses the page's own "CLIP" buttons on My Coupons, biggest dollar amounts first. |
+
+Want another store? [Request it](https://github.com/MrClumzy88/couponsweep/issues/new?template=store_request.yml).
+Costco, Sam's Club, Trader Joe's and Aldi don't have clippable digital coupons, so there's nothing to automate there.
 
 ## Install
 
-1. Download the ZIP from the [latest release](https://github.com/MrClumzy88/grocerybot-clipper/releases/latest)
-   and unzip it somewhere you'll keep it (for example `Documents\grocerybot-clipper`).
+1. Download the ZIP from the [latest release](https://github.com/MrClumzy88/couponsweep/releases/latest)
+   and unzip it somewhere you'll keep it (for example `Documents\couponsweep`).
 2. Open `chrome://extensions` in Chrome (or Edge or Brave).
 3. Turn on **Developer mode** (top right).
 4. Click **Load unpacked** and choose the unzipped folder (the one with `manifest.json`).
@@ -36,7 +55,7 @@ To update without losing your store choices and history:
 1. Download the new release ZIP.
 2. Unzip it **over your existing folder**, replacing the old files. (A new
    folder counts as a different extension to Chrome and starts from scratch.)
-3. In `chrome://extensions`, click the ↻ reload arrow on GroceryBot Clipper.
+3. In `chrome://extensions`, click the ↻ reload arrow on CouponSweep.
 
 ## Use
 
@@ -52,6 +71,42 @@ open at the time; tabs it opens close themselves when a run finishes cleanly.
 
 The popup remembers each store's last result, for example
 *"Clipped 212 of 214 new offers (2 failed) · 3 h ago"*.
+
+## FAQ
+
+**How do I clip all Kroger digital coupons at once?**
+Install CouponSweep, sign in at kroger.com, open the extension and click **Clip**
+next to Kroger. It clips everything it can until your card is full, highest
+savings first. The same works for Ralphs, Fry's, King Soopers, Fred Meyer and
+the other Kroger stores.
+
+**Can it automatically clip Safeway, Albertsons or Tom Thumb "for U" coupons?**
+Yes. All Albertsons Companies stores share one coupon system, and CouponSweep
+clips every "for U" (Just for U) coupon on them.
+
+**Does it work for H-E-B, Target Circle and Walmart Cash?**
+Yes: H-E-B digital coupons, Target Circle "Coupons to apply", and Walmart Cash
+offers are all supported.
+
+**Does it load CVS ExtraCare coupons and Walgreens coupons to my card?**
+Yes. On CVS it presses every "Send to card"; on Walgreens it clips up to the
+200-coupon account limit, biggest savings first.
+
+**Is it safe? Does it need my password?**
+No password, ever. You sign in to each store yourself; CouponSweep runs inside
+that page and only talks to that store. It's open source, so anyone can read
+exactly what it does. See [How it works](#how-it-works) and the [privacy policy](PRIVACY.md).
+
+**Can it clip coupons automatically every day?**
+Yes: turn on **Run once a day automatically** in the popup. Chrome needs to be
+open at the time, and you need to stay signed in to the stores.
+
+**Does it work in Edge, Brave or Firefox?**
+Edge and Brave, yes (they run Chrome extensions). Firefox isn't supported yet.
+
+**Will clipping coupons cost me anything or spend my rewards?**
+No. Clipping only makes a coupon available at checkout. CouponSweep never
+redeems points or spends rewards.
 
 ## How it works
 
@@ -115,13 +170,13 @@ The Albertsons-family endpoints follow
 Stores change their websites. If a store stops working:
 
 - Reload the store's page and try again (H-E-B in particular changes its site version often).
-- Open DevTools (F12) → Console on the store's tab and look for lines starting with `[GroceryBot]`.
+- Open DevTools (F12) → Console on the store's tab and look for lines starting with `[CouponSweep]`.
 - Open an issue with the store name and that console output.
 
 ## Contributing
 
-Ideas go in [Discussions](https://github.com/MrClumzy88/grocerybot-clipper/discussions),
-problems and store requests in [Issues](https://github.com/MrClumzy88/grocerybot-clipper/issues).
+Ideas go in [Discussions](https://github.com/MrClumzy88/couponsweep/discussions),
+problems and store requests in [Issues](https://github.com/MrClumzy88/couponsweep/issues).
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add a store.
 
 ## Disclaimer

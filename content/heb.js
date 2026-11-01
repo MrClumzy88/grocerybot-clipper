@@ -84,7 +84,7 @@
           }
           const err = res.errors?.[0];
           if (err?.extensions?.code === "UNAUTHENTICATED") throw ctx.fail("login", "Your H-E-B sign-in expired. Sign in and run again.");
-          if (err) { console.log("[GroceryBot] HEB clip failed", c.id, err.message); return false; }
+          if (err) { console.log("[CouponSweep] HEB clip failed", c.id, err.message); return false; }
           const typename = groupId ? res.data?.clipGroup?.__typename : res.data?.clip?.__typename;
           return typename === "CouponV2" || typename === "CouponGroup";
         }, [300, 700]);

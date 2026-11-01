@@ -80,7 +80,7 @@
           const text = await r.text().catch(() => "");
           // 422 TooManyCouponsOnCard: "This card already been loaded with maximum number of coupons."
           if (/TooManyCouponsOnCard|maximum number of coupons/i.test(text)) throw ctx.fail("ok", "Your Kroger card is full (Kroger limits how many coupons it holds). The most valuable ones were clipped first.");
-          console.log("[GroceryBot] Kroger clip failed", c.id, r.status, text);
+          console.log("[CouponSweep] Kroger clip failed", c.id, r.status, text);
           return false;
         }, [600, 1200]);
         failStreak = ok ? 0 : failStreak + 1;

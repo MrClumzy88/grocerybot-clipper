@@ -13,7 +13,7 @@ the **Bug report** template and include:
 
 - the store,
 - what the progress panel or popup said,
-- any lines starting with `[GroceryBot]` from DevTools (F12 → Console) on the store's tab.
+- any lines starting with `[CouponSweep]` from DevTools (F12 → Console) on the store's tab.
 
 Please don't paste screenshots or logs that show your account details,
 loyalty card number or address.

@@ -20,7 +20,7 @@ body:
     id: console
     attributes:
       label: Console lines
-      description: DevTools (F12) → Console on the store's tab, lines starting with [GroceryBot]. Remove anything personal.
+      description: DevTools (F12) → Console on the store's tab, lines starting with [CouponSweep]. Remove anything personal.
       render: text
   - type: input
     id: version

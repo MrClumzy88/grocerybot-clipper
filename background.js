@@ -83,7 +83,7 @@ function enqueue(storeIds, auto) {
     }
     chrome.action.setBadgeBackgroundColor({ color: "#16a34a" });
     chrome.action.setBadgeText({ text: clipped ? String(clipped) : "" });
-  }).catch((e) => console.error("[GroceryBot]", e));
+  }).catch((e) => console.error("[CouponSweep]", e));
   return queue;
 }
 

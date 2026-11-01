@@ -106,7 +106,7 @@
           });
           if (r.status === 401 || r.status === 403) throw ctx.fail("login", "Sign in to target.com first, then run again.");
           if (r.status === 435) throw ctx.fail("blocked", "Target wants a quick human check. Reload the deals page, complete it if asked, then run again.");
-          if (!r.ok) console.log("[GroceryBot] Target save failed", o.id, r.status, await r.text().catch(() => ""));
+          if (!r.ok) console.log("[CouponSweep] Target save failed", o.id, r.status, await r.text().catch(() => ""));
           return r.ok;
         }, [900, 1800]);
         failStreak = ok ? 0 : failStreak + 1;
