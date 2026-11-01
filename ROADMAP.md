@@ -42,6 +42,9 @@ The basic clipping stays free. Ideas for an optional upgrade:
   digital coupon + manufacturer coupon + rebate apps like Ibotta + the current
   sale), and flag stacks worth making a trip for. Needs offer data from more
   than one source, and each store's stacking rules.
+- "Your usual items are cheapest at X this week": the user keeps a list of
+  what they usually buy (entered by hand, kept on their computer), and
+  CouponSweep compares sale prices and clipped coupons across their stores.
 
 ## Competitors (as of 2026-11-01)
 
