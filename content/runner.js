@@ -52,7 +52,7 @@
       "box-shadow:0 10px 30px rgba(0,0,0,.35)";
     const title = document.createElement("div");
     title.style.cssText = "font-weight:600;margin-bottom:6px";
-    title.textContent = `GroceryBot · ${adapter.name}`;
+    title.textContent = `CouponSweep · ${adapter.name}`;
     const msg = document.createElement("div");
     msg.dataset.role = "msg";
     const bar = document.createElement("div");
@@ -146,7 +146,7 @@
         if (stopRequested) throw new StopRun("stopped", "Stopped.");
         await sleep(between(gap[0], gap[1]));
         let ok = false;
-        try { ok = await fn(); } catch (e) { if (e instanceof StopRun) throw e; console.log("[GroceryBot] clip error", e); }
+        try { ok = await fn(); } catch (e) { if (e instanceof StopRun) throw e; console.log("[CouponSweep] clip error", e); }
         if (ok) result.clipped++; else result.failed++;
         report(`Clipping… ${result.clipped} clipped${result.failed ? `, ${result.failed} failed` : ""}.`);
         return ok;
@@ -168,7 +168,7 @@
       } else {
         result.status = "error";
         result.message = `Something went wrong: ${e?.message || e}`;
-        console.error("[GroceryBot]", e);
+        console.error("[CouponSweep]", e);
       }
     }
 

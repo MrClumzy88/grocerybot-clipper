@@ -2,7 +2,7 @@
 
 *Last updated: October 31, 2026*
 
-GroceryBot Clipper is a browser extension that clips digital coupons on store
+CouponSweep is a browser extension that clips digital coupons on store
 websites you're already signed in to. It has no servers, no accounts, no
 analytics and no tracking. This page lists everything it touches.
 
@@ -26,7 +26,7 @@ store itself.
 
 **On GitHub.** To tell you when a new version is out, the popup asks GitHub's
 public API for the latest release of this project
-(`api.github.com/repos/MrClumzy88/grocerybot-clipper/releases/latest`), at most
+(`api.github.com/repos/MrClumzy88/couponsweep/releases/latest`), at most
 once every six hours. That request carries no personal data; like any web
 request, GitHub sees your IP address. GitHub's privacy policy applies to it.
 
@@ -53,4 +53,4 @@ Removing the extension deletes all of it.
 ## Contact
 
 Questions or concerns: open an issue at
-https://github.com/MrClumzy88/grocerybot-clipper/issues.
+https://github.com/MrClumzy88/couponsweep/issues.

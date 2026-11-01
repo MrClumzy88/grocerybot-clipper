@@ -97,7 +97,7 @@
           });
           if (isBlocked(res.status)) throw ctx.fail("blocked", BLOCKED);
           if (res.status === 401) throw ctx.fail("login", "Your sign-in expired. Sign in again, then run again.");
-          if (!res.ok) { console.log("[GroceryBot] clip failed", o.offerId, res.status); return false; }
+          if (!res.ok) { console.log("[CouponSweep] clip failed", o.offerId, res.status); return false; }
           const body = await res.json().catch(() => ({}));
           return body?.items?.[0]?.status === 1;
         }, [450, 950]);
