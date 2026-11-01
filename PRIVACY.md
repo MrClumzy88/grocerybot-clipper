@@ -29,6 +29,8 @@ public API for the latest release of this project
 (`api.github.com/repos/MrClumzy88/couponsweep/releases/latest`), at most
 once every six hours. That request carries no personal data; like any web
 request, GitHub sees your IP address. GitHub's privacy policy applies to it.
+Copies installed from the Chrome Web Store update through Chrome and never
+make this request.
 
 ## What it stores
 
